@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MENTALITÉ FOCUS — Business Plan Stratégique 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #C9A227;
+    --brand-hover: #A67C00;
+    --cyan: #C9A227;
+    --void: #0a0a0a;
+    --bg: #FFFFFF;
+    --bg2: #F5F5F5;
+    --bg3: #EBEBEB;
+    --white: #0a0a0a;
+    --white-60: rgba(10,10,10,0.55);
+    --white-20: rgba(10,10,10,0.12);
+    --white-08: rgba(10,10,10,0.06);
+    --blue-glow: rgba(201,162,39,0.10);
+    --cyan-glow: rgba(0,182,122,0.08);
+    --success: #C9A227;
+    --warning: #C9A227;
+    --danger: #ef4444;
+    --grid: 4px;
+    --radius: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4, h5 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  /* GRID */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--white-20);
+    padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0.1em; }
+  .nav-logo span { color: var(--brand); }
+  .nav-badge {
+    background: var(--brand); color: white;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+    padding: 4px 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: var(--white-60); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--brand); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,162,39,0.08) 0%, transparent 70%);
+    padding-top: 80px;
+  }
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--brand); letter-spacing: 0.3em;
+    text-transform: uppercase; margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 40px; height: 1px; background: var(--brand); opacity: 0.5;
+  }
+  .hero h1 {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 700; line-height: 0.95;
+    margin-bottom: 8px;
+  }
+  .hero h1 .accent { color: var(--brand); }
+  .hero-sub {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 300; color: var(--white-60);
+    margin-bottom: 48px; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 64px;
+    margin-bottom: 64px;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-value {
+    font-family: 'Oswald', sans-serif; font-size: 42px; font-weight: 700;
+    color: var(--white); line-height: 1;
+  }
+  .hero-stat-value .unit { font-size: 24px; color: var(--brand); }
+  .hero-stat-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--white-60); letter-spacing: 0.2em; text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .hero-divider { width: 1px; background: var(--white-20); }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: linear-gradient(135deg, #C9A227, #A67C00); color: #000;
+    padding: 16px 40px; font-family: 'Oswald', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; border: none; cursor: pointer;
+    text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    border-radius: 100px;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 12px;
+    border: 1px solid var(--white-20); color: white;
+    padding: 16px 40px; font-family: 'Oswald', sans-serif;
+    font-size: 16px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; cursor: pointer;
+    text-decoration: none; transition: border-color 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .hero-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* SECTIONS */
+  section { padding: 120px 0; position: relative; z-index: 1; }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    color: var(--brand); letter-spacing: 0.3em; text-transform: uppercase;
+    margin-bottom: 16px; display: block;
+  }
+  .section-title {
+    font-size: clamp(32px, 5vw, 56px); font-weight: 700;
+    line-height: 1; margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--white-60); max-width: 600px;
+    line-height: 1.7; margin-bottom: 64px;
+  }
+
+  /* SEPARATOR */
+  .sep { height: 1px; background: var(--white-20); margin: 0; }
+  .sep-accent { height: 2px; background: var(--brand); width: 60px; margin-bottom: 24px; }
+
+  /* CARD */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--white-20);
+    padding: 32px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .card:hover { border-color: var(--brand); transform: translateY(-4px); }
+  .card-accent {
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--brand);
+  }
+  .card-cyan .card-accent { background: var(--brand); }
+  .card-number {
+    font-family: 'Oswald', sans-serif; font-size: 64px; font-weight: 700;
+    color: var(--white-08); line-height: 1; position: absolute;
+    top: 16px; right: 20px;
+  }
+  .card-icon {
+    width: 40px; height: 40px; background: var(--blue-glow);
+    border: 1px solid rgba(0,71,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 18px;
+  }
+  .card-title {
+    font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .card-body { font-size: 14px; color: var(--white-60); line-height: 1.7; }
+  .card-tag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; padding: 3px 8px; margin-top: 16px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .tag-blue { background: rgba(0,71,255,0.15); color: var(--brand); border: 1px solid rgba(0,71,255,0.3); }
+  .tag-cyan { background: rgba(0,255,255,0.08); color: var(--brand); border: 1px solid rgba(0,255,255,0.2); }
+  .tag-success { background: rgba(0,230,118,0.08); color: var(--success); border: 1px solid rgba(0,230,118,0.2); }
+  .tag-warning { background: rgba(255,214,0,0.08); color: var(--warning); border: 1px solid rgba(255,214,0,0.2); }
+
+  /* PHASE HEADER */
+  .phase-header {
+    background: var(--bg2); border: 1px solid var(--white-20);
+    padding: 48px; margin-bottom: 48px; position: relative;
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 40px; align-items: center;
+  }
+  .phase-number {
+    font-family: 'Oswald', sans-serif; font-size: 96px; font-weight: 700;
+    line-height: 1; color: var(--brand); opacity: 0.2;
+  }
+  .phase-title { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
+  .phase-subtitle { color: var(--white-60); font-size: 15px; }
+  .phase-meta { text-align: right; }
+  .phase-days {
+    font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700;
+    color: var(--brand);
+  }
+  .phase-days-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--white-60); letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; }
+  .timeline-line {
+    position: absolute; left: 120px; top: 0; bottom: 0;
+    width: 1px; background: var(--white-20);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 40px; margin-bottom: 0;
+    position: relative;
+  }
+  .timeline-item + .timeline-item { border-top: 1px solid var(--white-08); }
+  .timeline-date {
+    text-align: right; padding: 24px 0; padding-right: 40px;
+    position: relative; z-index: 1;
+  }
+  .timeline-day {
+    font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700;
+    color: var(--brand);
+  }
+  .timeline-weekday {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--white-60); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .timeline-dot {
+    position: absolute; right: -5px; top: 28px;
+    width: 10px; height: 10px; background: var(--brand);
+    border-radius: 50%; border: 2px solid var(--bg);
+  }
+  .timeline-dot.cyan { background: var(--brand); }
+  .timeline-dot.success { background: var(--success); }
+  .timeline-content { padding: 24px 0; }
+  .timeline-title {
+    font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .timeline-tasks { list-style: none; }
+  .timeline-tasks li {
+    font-size: 13px; color: var(--white-60); padding: 3px 0;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .timeline-tasks li::before {
+    content: '→'; color: var(--brand); flex-shrink: 0; font-size: 12px; margin-top: 1px;
+  }
+
+  /* WEEK HEADER */
+  .week-block {
+    background: var(--bg3); border: 1px solid var(--white-20);
+    margin-bottom: 2px;
+  }
+  .week-label {
+    background: linear-gradient(135deg, #C9A227, #A67C00); color: #000; padding: 12px 32px;
+    font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; display: inline-block;
+  }
+
+  /* FINANCIAL TABLE */
+  .fin-table { width: 100%; border-collapse: collapse; }
+  .fin-table th {
+    padding: 16px 20px; text-align: left;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-60);
+    border-bottom: 1px solid var(--white-20); background: var(--bg2);
+  }
+  .fin-table td {
+    padding: 16px 20px; font-size: 14px;
+    border-bottom: 1px solid var(--white-08);
+  }
+  .fin-table tr:hover td { background: var(--white-08); }
+  .fin-table .total-row td {
+    background: rgba(0,71,255,0.08); color: var(--white);
+    font-weight: 600; border-top: 2px solid var(--brand);
+    border-bottom: 2px solid var(--brand);
+  }
+  .amount { font-family: 'IBM Plex Mono', monospace; }
+  .amount.positive { color: var(--success); }
+  .amount.negative { color: var(--danger); }
+  .amount.neutral { color: var(--brand); }
+
+  /* BIG METRIC */
+  .metric-block {
+    background: var(--bg2); border: 1px solid var(--white-20);
+    padding: 40px; text-align: center; position: relative;
+  }
+  .metric-block::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--brand), var(--brand));
+  }
+  .metric-value {
+    font-family: 'Oswald', sans-serif; font-size: 56px; font-weight: 700;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .metric-value.blue { color: var(--brand); }
+  .metric-value.cyan { color: var(--brand); }
+  .metric-value.green { color: var(--success); }
+  .metric-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    color: var(--white-60); letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  /* CREATIVE BRIEF */
+  .brief-card {
+    background: var(--bg2); border: 1px solid var(--white-20);
+    padding: 36px; position: relative;
+  }
+  .brief-num {
+    font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--brand); letter-spacing: 0.2em; margin-bottom: 12px;
+    display: block;
+  }
+  .brief-title {
+    font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .brief-scene {
+    font-size: 13px; color: var(--white-60); line-height: 1.8;
+    border-left: 2px solid var(--brand); padding-left: 16px; margin: 16px 0;
+  }
+  .brief-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+
+  /* SCRIPT BOX */
+  .script-box {
+    background: var(--bg3); border: 1px solid rgba(0,71,255,0.3);
+    padding: 40px; margin: 0; position: relative;
+  }
+  .script-box::before {
+    content: '"'; position: absolute; top: 16px; left: 24px;
+    font-size: 80px; color: var(--brand); opacity: 0.15;
+    font-family: Georgia, serif; line-height: 1;
+  }
+  .script-speaker {
+    font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--brand); letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+  }
+  .script-speaker::after { content: ''; flex: 1; height: 1px; background: var(--white-20); }
+  .script-text {
+    font-size: 15px; line-height: 1.9; color: var(--white-60);
+    font-style: italic;
+  }
+  .script-text strong { color: var(--white); font-style: normal; }
+  .script-note {
+    margin-top: 20px; padding: 16px;
+    background: rgba(0,71,255,0.08); border-left: 2px solid var(--brand);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--white-60);
+  }
+
+  /* SPEAKER CARD */
+  .speaker-card {
+    background: var(--bg2); border: 1px solid var(--white-20);
+    padding: 28px; display: flex; flex-direction: column; gap: 12px;
+  }
+  .speaker-name {
+    font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .speaker-role { font-size: 13px; color: var(--white-60); }
+  .speaker-fee {
+    font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700;
+    color: var(--brand); margin-top: auto;
+  }
+  .speaker-fee-note { font-size: 11px; color: var(--white-60); }
+
+  /* FUNNEL */
+  .funnel-step {
+    background: var(--bg2); border: 1px solid var(--white-20);
+    padding: 24px 32px; display: flex; align-items: center; gap: 24px;
+    position: relative; margin-bottom: 0;
+  }
+  .funnel-step + .funnel-step { border-top: none; }
+  .funnel-step::after {
+    content: '↓'; position: absolute; bottom: -20px; left: 50%;
+    transform: translateX(-50%); color: var(--brand); font-size: 20px;
+    z-index: 2; background: var(--bg); padding: 0 8px;
+    display: none;
+  }
+  .funnel-step:not(:last-child)::after { display: block; }
+  .funnel-n {
+    font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700;
+    color: var(--brand); min-width: 40px;
+  }
+  .funnel-label { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; }
+  .funnel-sub { font-size: 13px; color: var(--white-60); }
+  .funnel-conversion {
+    margin-left: auto; font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; color: var(--brand);
+  }
+
+  /* KPI ROW */
+  .kpi-row {
+    background: var(--bg2); border: 1px solid var(--white-20);
+    padding: 24px 32px; display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 2px;
+  }
+  .kpi-name { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; }
+  .kpi-target { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--white-60); }
+  .kpi-value { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: rgba(0,71,255,0.08); border: 1px solid rgba(0,71,255,0.3);
+    padding: 24px 32px; margin: 32px 0;
+  }
+  .highlight-cyan {
+    background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2);
+  }
+
+  /* RISK TABLE */
+  .risk-row { display: flex; gap: 0; margin-bottom: 2px; }
+  .risk-name {
+    flex: 3; background: var(--bg2); padding: 16px 24px;
+    font-size: 14px; border-right: 2px solid var(--white-08);
+  }
+  .risk-level {
+    flex: 1; padding: 16px 24px; text-align: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
+  }
+  .risk-mitigation { flex: 3; background: var(--bg3); padding: 16px 24px; font-size: 13px; color: var(--white-60); }
+  .risk-high .risk-level { background: rgba(255,23,68,0.15); color: var(--danger); }
+  .risk-med .risk-level { background: rgba(255,214,0,0.08); color: var(--warning); }
+  .risk-low .risk-level { background: rgba(0,230,118,0.08); color: var(--success); }
+
+  /* FOOTER */
+  footer {
+    background: #0a0a0a; border-top: 1px solid var(--white-20);
+    padding: 60px 40px; text-align: center; position: relative; z-index: 1;
+  }
+  footer, footer * { color: rgba(255,255,255,0.7) !important; }
+  .footer-logo span { color: #C9A227 !important; }
+  .footer-logo {
+    font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700;
+    letter-spacing: 0.1em; margin-bottom: 12px;
+  }
+  .footer-logo span { color: var(--brand); }
+  .footer-tagline { font-size: 12px; color: var(--white-60); letter-spacing: 0.2em; text-transform: uppercase; }
+  .footer-meta {
+    margin-top: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    color: var(--white-60); display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 24px; }
+    .phase-header { grid-template-columns: 1fr; text-align: center; }
+    .timeline-item { grid-template-columns: 80px 1fr; }
+    .timeline-line { left: 80px; }
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    section { padding: 80px 0; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: black; }
+    nav { display: none; }
+    .hero { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo"><span>MENTALITÉ</span> FOCUS</div>
+  <div class="nav-links">
+    <a href="#overview">Concept</a>
+    <a href="#resultats">Résultats</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#financials">Budget & ROI</a>
+    <a href="#kpis">KPIs</a>
+  </div>
+  <div class="nav-badge">Confidentiel — Mars 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Plan Stratégique de Lancement</div>
+    <h1>MENTALITÉ<br><span class="accent">FOCUS</span></h1>
+    <div class="hero-sub">Passe à l'Action — 45 Jours — ROI Maximal</div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">10<span class="unit">€</span></div>
+        <div class="hero-stat-label">Par Mois / Abonné</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">45</div>
+        <div class="hero-stat-label">Jours de Campagne</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">85<span class="unit">k</span></div>
+        <div class="hero-stat-label">Leads Email Base</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">3</div>
+        <div class="hero-stat-label">Phases Stratégiques</div>
+      </div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#overview" class="btn-primary">Voir le Plan ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="sep"></div>
+<section id="overview">
+  <div class="container">
+    <span class="section-label">01 — Executive Summary</span>
+    <h2 class="section-title">Le Concept</h2>
+    <p class="section-desc">Un groupe Discord d'entraide premium sur l'e-commerce, le marketing digital et l'IA — piloté par un influenceur à forte notoriété. Accès 10€/mois. Objectif : 5 000 abonnés actifs en 45 jours via une stratégie Bad Buzz → Sprint → Conversion.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-number">01</div>
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Groupe Discord FOCUS</div>
+        <div class="card-body">Communauté d'entraide e-commerce, marketing digital & IA. Lives quotidiens, replays, formations. Animé par Zaïd, influenceur à forte communauté.</div>
+        <span class="card-tag tag-blue">Discord Premium</span>
+      </div>
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-number">02</div>
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Cible Principale</div>
+        <div class="card-body">Femmes au foyer & jeunes adultes 18-35 ans cherchant à générer des revenus en ligne. Profil "débutant motivé". Accessibilité du prix = levier majeur.</div>
+        <span class="card-tag tag-cyan">Masse Market</span>
+      </div>
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-number">03</div>
+        <div class="card-icon">💡</div>
+        <div class="card-title">Proposition de Valeur</div>
+        <div class="card-body">Accès à des formations, lives et experts pour 10€/mois — le prix d'un café. Contenu orienté résultats concrets, animé par des personnalités crédibles.</div>
+        <span class="card-tag tag-success">10€/mois</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <div class="highlight">
+        <strong>Avantage concurrentiel clé :</strong> Un influenceur reconnu (Zaïd) comme figure centrale crédibilise instantanément l'offre. La barrière d'entrée à 10€/mois réduit à zéro la friction à l'achat. Le Bad Buzz amplifie organiquement la notoriété sans coût pub supplémentaire.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉSULTATS CONCRETS PAR PHASE -->
+<div class="sep"></div>
+<section id="resultats" style="background: #0a0a0a; color: #fff; padding: 120px 0;">
+  <div class="container">
+    <span class="section-label" style="color: #C9A227;">02 — Ce que ça rapporte concrètement</span>
+    <h2 class="section-title" style="color: #fff;">Résultats Réels — Phase par Phase</h2>
+    <p style="font-size: 16px; color: rgba(255,255,255,0.6); max-width: 650px; line-height: 1.7; margin-bottom: 64px;">
+      Basé sur les benchmarks réels du marché français : taux d'ouverture email moyen 22%, conversion TikTok viral 0.15-0.3%, taux de passage gratuit → payant Discord 10-15%. Abonnement 10€/mois récurrent.
+    </p>
+
+    <!-- 3 PHASES -->
+    <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-bottom: 64px;">
+
+      <!-- PHASE 1 -->
+      <div style="background: #111; padding: 40px; border-top: 3px solid #C9A227;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9A227; letter-spacing:0.3em; margin-bottom:16px;">PHASE 1 — J1 À J14</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:22px; font-weight:700; margin-bottom:24px; line-height:1.2;">Bad Buzz<br>& Clipper</div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">TikTok Clips — 21 à 35 clips sur 7 jours</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; color:#C9A227;">2M – 5M <span style="font-size:16px; color:rgba(255,255,255,0.5);">vues</span></div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px;">0.05% conv. = 1 000 – 2 500 rejoins Discord</div>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Yousra story + Snap Journalistes × 2 + Zaïd</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; color:#C9A227;">500k – 1.5M <span style="font-size:16px; color:rgba(255,255,255,0.5);">reach total</span></div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px;">0.3% click → 1 500 – 4 500 rejoins Snap</div>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Abonnés payants (20% des rejoins totaux)</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:36px; font-weight:700; color:#fff;">500 – 1 400</div>
+        </div>
+        <div style="padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">MRR fin Phase 1</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:#C9A227;">5 000 – 14 000€<span style="font-size:16px;">/mois</span></div>
+        </div>
+        <div style="margin-top:20px; background:rgba(201,162,39,0.1); border-left:2px solid #C9A227; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.7);">
+          Budget investi : <strong style="color:#fff;">3 000€</strong><br>
+          (Clipper 2k + 2 journalistes Snap 1k)<br>
+          <strong style="color:#C9A227;">ROI Phase 1 seule : x1.7 à x4.7 dès le 1er mois</strong>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div style="background: #111; padding: 40px; border-top: 3px solid #C9A227;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9A227; letter-spacing:0.3em; margin-bottom:16px;">PHASE 2 — J8 À J28</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:22px; font-weight:700; margin-bottom:24px; line-height:1.2;">Ads + Sprint<br>3 Jours</div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Créatif Piscine — TikTok Ads + Snap Ads + Facebook Ads</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; color:#C9A227;">150 – 500 <span style="font-size:16px; color:rgba(255,255,255,0.5);">abonnés</span></div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px;">50€/j × 3 plateformes × 7j = 1 050€ de budget</div>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Email Klaviyo — 85 000 leads</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; color:#C9A227;">450 – 900 <span style="font-size:16px; color:rgba(255,255,255,0.5);">abonnés</span></div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px;">22% open × 3% CTR × 20% conv.</div>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Sprint viral — Clips speakers + PA7 Snap</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; color:#C9A227;">600 – 1 800 <span style="font-size:16px; color:rgba(255,255,255,0.5);">abonnés</span></div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px;">Clipper Sprint 2k + PA7 1.5k</div>
+        </div>
+        <div style="padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">MRR cumulé fin Phase 2</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:36px; font-weight:700; color:#C9A227;">17 000 – 47 000€<span style="font-size:16px;">/mois</span></div>
+        </div>
+        <div style="margin-top:20px; background:rgba(201,162,39,0.1); border-left:2px solid #C9A227; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.7);">
+          Budget Phase 2 : <strong style="color:#fff;">6 050€</strong><br>
+          (Ads 1.05k + Email 1.5k + Clipper 2k + PA7 1.5k)
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div style="background: #111; padding: 40px; border-top: 3px solid #C9A227;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9A227; letter-spacing:0.3em; margin-bottom:16px;">PHASE 3 — J29 À J45</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:22px; font-weight:700; margin-bottom:24px; line-height:1.2;">Conversion<br>Lives Publics</div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Lives publics Zaïd × 3/semaine</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; color:#C9A227;">500 – 1 200 <span style="font-size:16px; color:rgba(255,255,255,0.5);">abonnés supp.</span></div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px;">20% des membres publics convertis en payants</div>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">Total abonnés cumulés fin J45</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:36px; font-weight:700; color:#fff;">3 000 – 7 000</div>
+        </div>
+        <div style="padding: 14px 0;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:4px;">MRR fin 45 jours (cumulatif)</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:#C9A227;">30 000 – 70 000€<span style="font-size:16px;">/mois</span></div>
+        </div>
+        <div style="margin-top:20px; background:rgba(201,162,39,0.1); border-left:2px solid #C9A227; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.7);">
+          Budget Phase 3 : <strong style="color:#fff;">0€</strong><br>
+          Les lives sont assurés par Zaïd — aucun coût supplémentaire.<br>
+          <strong style="color:#C9A227;">Revenus purs à partir de J29.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- BILAN ANNUEL -->
+    <div style="background: linear-gradient(135deg, #C9A227, #A67C00); padding: 48px; display:grid; grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr; gap:0; align-items:center;">
+      <div style="text-align:center; padding: 0 32px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(0,0,0,0.6); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px;">Budget Total 45j</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:#000; line-height:1;">~20 000€</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2); width:1px; height:60px;"></div>
+      <div style="text-align:center; padding: 0 32px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(0,0,0,0.6); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px;">Abonnés J45</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:#000; line-height:1;">2 500 – 5 500</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2); width:1px; height:60px;"></div>
+      <div style="text-align:center; padding: 0 32px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(0,0,0,0.6); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px;">MRR Fin J45</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:#000; line-height:1;">25 000 – 55 000€</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2); width:1px; height:60px;"></div>
+      <div style="text-align:center; padding: 0 32px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(0,0,0,0.6); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px;">Revenus Année 1</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:#000; line-height:1;">300k – 660k€</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:24px 32px; font-size:14px; color:rgba(255,255,255,0.6); line-height:1.8;">
+      <strong style="color:#C9A227;">Méthodologie des projections :</strong> Email 85k × 22% open rate × 3% CTR × 15% conversion payante. TikTok viral 0.2% conversion directe. Snap reach influenceurs × 0.5% conversion. Discord public → payant 10-15%. Churn mensuel estimé 5-8%. Sources : benchmarks Klaviyo 2025, études SaaS communautés France.
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE 45 JOURS -->
+<div class="sep"></div>
+<section id="timeline">
+  <div class="container">
+    <span class="section-label">02 — Chronologie Complète</span>
+    <h2 class="section-title">45 Jours — Jour par Jour</h2>
+    <p class="section-desc">Chaque journée a un objectif précis, une action définie et un responsable identifié.</p>
+
+    <!-- SEMAINE 1 -->
+    <div style="margin-bottom: 4px;">
+      <div class="week-label">Semaine 1 — Phase Bad Buzz : Détonateur</div>
+    </div>
+    <div class="highlight" style="margin-bottom: 2px; border-radius: 0;">
+      <strong>Contexte :</strong> La semaine démarre avec 3 lives de formation création de site web (Lundi / Mercredi / Vendredi). C'est lors du live du <strong>Vendredi soir à 20h30</strong> que tout se déclenche. Le clipper est actif <strong>toute la semaine</strong> (payé 2 000€ sur 7 jours).
+    </div>
+    <div class="week-block" style="margin-bottom: 48px;">
+      <div class="timeline" style="padding: 0 32px;">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J1</div>
+            <div class="timeline-weekday">Vendredi</div>
+            <div class="timeline-dot cyan"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">⚡ DÉTONATEUR — Live Formation Site Web 20h30 + Bad Buzz Yousra</div>
+            <ul class="timeline-tasks">
+              <li>Live formation création de site web (Zaïd) — 3e live de la semaine, 20h30</li>
+              <li>Durant le live : Yousra apparaît naturellement dans les commentaires avec une question sur son propre site</li>
+              <li>La communauté la reconnaît immédiatement — 50+ messages dans le chat ("C'est Yousra !")</li>
+              <li>Zaïd l'invite en visio — elle rejoint le live et explique comment elle a atterri sur le groupe</li>
+              <li><strong>LA SCÈNE :</strong> En cuisine pendant la visio — mélange d'ingrédients incongrus en direct (ex: Nutella + ketchup), réaction live naturelle qui enflamme le chat</li>
+              <li>Clipper enregistre tout en temps réel — premier clip TikTok publié dans la nuit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J2</div>
+            <div class="timeline-weekday">Samedi</div>
+            <div class="timeline-dot" style="background: var(--warning)"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">TikTok Clips + Fake Influenceur #1 — Exclusivité Actu (500€)</div>
+            <ul class="timeline-tasks">
+              <li>Clipper : 3 à 5 clips TikTok publiés tout au long de la journée (actif chaque jour pendant 7 jours)</li>
+              <li><strong>Fake Influenceur #1</strong> (Snapchat — format magazine actu) : elle reçoit le contenu en <strong>exclusivité</strong> — première à relater les faits du live vendredi soir, ton journalistique, factuel, viral</li>
+              <li>Sa communauté Snap découvre l'événement via elle en premier — crédibilité "source exclusive"</li>
+              <li>Prestation : 500€</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J3</div>
+            <div class="timeline-weekday">Dimanche</div>
+            <div class="timeline-dot" style="background: var(--warning)"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Journaliste Snap #2 + Réaction Zaïd — Effet Boule de Neige</div>
+            <ul class="timeline-tasks">
+              <li><strong>Journaliste Snap #2</strong> (même format magazine actu, autre communauté) : relaie l'information à son tour — "voilà ce qui s'est passé", même angle factuel</li>
+              <li>Les deux comptes créent un effet "tout le monde en parle sur Snap" — l'événement semble incontournable</li>
+              <li>Prestation : 500€</li>
+              <li>Zaïd poste sa réaction sur <strong>Snap uniquement</strong></li>
+              <li>Clipper continue : 3 à 5 clips TikTok supplémentaires</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J4 – J5</div>
+            <div class="timeline-weekday">Lun – Mar</div>
+            <div class="timeline-dot" style="background: var(--white-60)"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Buzz Organique — Micro-Influenceurs Spontanés</div>
+            <ul class="timeline-tasks">
+              <li>Les micro-influenceurs reprennent le sujet spontanément — ils commentent, réagissent, créent leurs propres contenus sur le bad buzz</li>
+              <li>Clipper maintient le flux TikTok : 3 à 5 clips par jour</li>
+              <li>L'événement continue de circuler sans coût supplémentaire</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J5 – J6</div>
+            <div class="timeline-weekday">Mar – Mer</div>
+            <div class="timeline-dot success"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Yousra — Elle Prend La Parole</div>
+            <ul class="timeline-tasks">
+              <li>Yousra, après plusieurs jours de messages privés reçus, publie un premier texte : <em>"J'ai reçu beaucoup de messages depuis vendredi, je vous réponds en story"</em></li>
+              <li>Puis sa story complète : son expérience sur le groupe, ce qu'elle a appris, l'accessibilité (10€/mois, replays, femmes avec enfants)</li>
+              <li>Ce timing tardif est clé : le buzz a eu le temps de monter avant qu'elle prenne la parole — sa story arrive comme une confirmation attendue</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEMAINE 2 -->
+    <div style="margin-bottom: 4px;">
+      <div class="week-label">Semaine 2 — Conversion Bad Buzz + Lancement Ads</div>
+    </div>
+    <div class="week-block" style="margin-bottom: 48px;">
+      <div class="timeline" style="padding: 0 32px;">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J8</div>
+            <div class="timeline-weekday">Lundi</div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Lancement Campagne Ads — Créatif Piscine</div>
+            <ul class="timeline-tasks">
+              <li>Lancer <strong>Créatif #1 — La Piscine</strong> sur TikTok Ads, Snapchat Ads et Facebook Ads</li>
+              <li>Budget : <strong>50€/jour par plateforme</strong></li>
+              <li>Clipper continue la production de contenus sur le buzz Yousra</li>
+              <li>Discord : live Zaïd "Récap de la semaine + réponses questions"</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J9</div>
+            <div class="timeline-weekday">Mardi</div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Ads Scaling — Analyse & Optimisation</div>
+            <ul class="timeline-tasks">
+              <li>Analyser les résultats J1 ads (Créatif Piscine) — CPM, CPC, taux de clic par plateforme</li>
+              <li>Scaler le budget sur la plateforme la plus performante</li>
+              <li>Lancer Créatif #2 et Créatif #3 en test</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J10-J12</div>
+            <div class="timeline-weekday">Mer–Ven</div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Campagne Ads Active + Préparation Sprint</div>
+            <ul class="timeline-tasks">
+              <li>Campagne Piscine active sur TikTok Ads, Snapchat Ads, Facebook Ads (50€/jour/plateforme)</li>
+              <li>Préparer l'annonce officielle du Sprint</li>
+              <li>Clipper finalise la semaine : best-of clips bad buzz</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J13-J14</div>
+            <div class="timeline-weekday">Sam–Dim</div>
+            <div class="timeline-dot" style="background: var(--warning)"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Bilan Phase 1 + Préparation Sprint</div>
+            <ul class="timeline-tasks">
+              <li>Rapport métriques Phase 1 (nouveaux abonnés, revenus générés)</li>
+              <li>Finaliser les contrats intervenants Sprint (Baloo, Antoine BM, Oussama Amar)</li>
+              <li>Confirmer PA7 pour campagne Snap Sprint (1 500€)</li>
+              <li>Setup Discord Sprint : canaux dédiés, page d'inscription publique</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEMAINE 3 -->
+    <div style="margin-bottom: 4px;">
+      <div class="week-label">Semaines 3–4 — Phase SPRINT : Le Grand Événement</div>
+    </div>
+    <div class="week-block" style="margin-bottom: 48px;">
+      <div class="timeline" style="padding: 0 32px;">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J15-J17</div>
+            <div class="timeline-weekday">Lun–Mer</div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Campagne Email + Lancement Ads Sprint</div>
+            <ul class="timeline-tasks">
+              <li>Envoi campagne Klaviyo : 1 email — 85 000 leads (1 500€)</li>
+              <li>Lancer Créatifs Sprint : TikTok Ads, YouTube Pre-roll, Instagram</li>
+              <li>Story Zaïd : annonce officielle Sprint + intervenants stars</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J18</div>
+            <div class="timeline-weekday">Mardi</div>
+            <div class="timeline-dot cyan"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">⚡ SPRINT — Jour 1 : Zaïd + Baloo</div>
+            <ul class="timeline-tasks">
+              <li>Live Sprint Jour 1 — Zaïd + Baloo : E-commerce & stratégie digitale</li>
+              <li>Discord public ouvert : inscription gratuite pour suivre le sprint</li>
+              <li>Push Discord : tous les inscrits gratuitement deviennent prospects chauds pour conversion</li>
+              <li>Clipper actif en temps réel — clips dans l'heure après le live</li>
+              <li>PA7 Snap : story de teaser pour J2 Sprint</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J19</div>
+            <div class="timeline-weekday">Mercredi</div>
+            <div class="timeline-dot cyan"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">⚡ SPRINT — Jour 2 : Zaïd + Antoine BM</div>
+            <ul class="timeline-tasks">
+              <li>Live Sprint Jour 2 — Zaïd + Antoine BM : mindset champion, investissement, succès</li>
+              <li>PA7 Snap : story principale Sprint (1 500€) — speech script dédié</li>
+              <li>Push prix limité : "Accès illimité replays Sprint + Discord = 10€/mois seulement"</li>
+              <li>Clipper : 5-8 clips courts TikTok sur Antoine BM x Zaïd</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J20</div>
+            <div class="timeline-weekday">Jeudi</div>
+            <div class="timeline-dot cyan"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">⚡ SPRINT — Jour 3 : Zaïd + Oussama Amar</div>
+            <ul class="timeline-tasks">
+              <li>Live Sprint Jour 3 — Zaïd + Oussama Amar : entrepreneuriat, levées de fonds, tech</li>
+              <li>Closing Sprint : offre exclusive 48h pour abonnement Discord (possiblement mois offert)</li>
+              <li>Yousra : story récapitulatif Sprint — recommandation abonnement</li>
+              <li>Push Meta Ads + TikTok Ads : best moments Sprint en créatif</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J21-J28</div>
+            <div class="timeline-weekday">Ven–Ven</div>
+            <div class="timeline-dot" style="background: var(--warning)"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Post-Sprint : Maximisation Conversions + Clips</div>
+            <ul class="timeline-tasks">
+              <li>Clipper : production intensive clips Sprint pour TikTok — attirer les retardataires</li>
+              <li>Email sequence : "Tu as raté le Sprint? Regarde les replays en rejoignant le groupe"</li>
+              <li>Ads : booter les meilleurs clips Sprint (Antoine BM, moments forts)</li>
+              <li>Discord public : lives gratuits 3x/semaine pour convertir les membres non-payants</li>
+              <li>Analyser données : taux conversion membres publics → payants</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEMAINE 5-6-7 -->
+    <div style="margin-bottom: 4px;">
+      <div class="week-label">Semaines 5–6–7 — Phase CONVERSION : Installer la Machine</div>
+    </div>
+    <div class="week-block" style="margin-bottom: 48px;">
+      <div class="timeline" style="padding: 0 32px;">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J29-J35</div>
+            <div class="timeline-weekday">Sem 5</div>
+            <div class="timeline-dot success"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Lives Publics Intensifs — Conversion Machine</div>
+            <ul class="timeline-tasks">
+              <li>Lives publics Zaïd : Lundi, Mercredi, Vendredi (formats courts 45-60 min)</li>
+              <li>Fin de chaque live : pitch abonnement Discord payant (10€/mois)</li>
+              <li>Séquence Discord automatisée : message privé aux membres publics J+3, J+7</li>
+              <li>Content loop : Clips Sprint continuent à circuler sur TikTok organic</li>
+              <li>Monitoring churn rate + NPS communauté existante</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J36-J42</div>
+            <div class="timeline-weekday">Sem 6</div>
+            <div class="timeline-dot success"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Lives Publics — Conversion Continue</div>
+            <ul class="timeline-tasks">
+              <li>Lives publics Zaïd — convertir les membres non-payants du groupe public</li>
+              <li>Clips Sprint continuent à circuler sur TikTok organic</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <div class="timeline-day">J43-J45</div>
+            <div class="timeline-weekday">Bilan Final</div>
+            <div class="timeline-dot success"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Rapport Final 45 Jours — Consolidation</div>
+            <ul class="timeline-tasks">
+              <li>Rapport complet : abonnés actifs, MRR (revenus récurrents mensuels), ROI</li>
+              <li>Identifier top 3 sources d'acquisition pour doubler la mise Mois 2</li>
+              <li>Lancer le Sprint Mois 2 (cycle perpétuel)</li>
+              <li>Archive contenus : best clips, testimonials, pour réutilisation pub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRÉATIFS -->
+<div class="sep"></div>
+<section id="creatives">
+  <div class="container">
+    <span class="section-label">03 — Brief Créatifs</span>
+    <h2 class="section-title">6 Vidéos Publicitaires</h2>
+    <p class="section-desc">3 créatifs Phase Bad Buzz + 3 créatifs Phase Sprint. Chaque vidéo a un angle émotionnel différent pour maximiser la portée et tester le marché.</p>
+
+    <!-- PHASE 1 CREATIVES -->
+    <div style="margin-bottom: 16px;">
+      <div class="week-label" style="background: var(--brand); display: inline-block; padding: 8px 24px; font-size: 12px; letter-spacing: 0.2em;">Phase 1 — Bad Buzz Créatifs</div>
+    </div>
+    <div class="grid-3" style="margin-bottom: 48px;">
+      <div class="brief-card">
+        <span class="brief-num">CRÉATIF #1 — BAD BUZZ</span>
+        <div class="brief-title">La Piscine 10€</div>
+        <div class="brief-scene">
+          <strong>Décor :</strong> Villa luxueuse, extérieur piscine, soleil.<br><br>
+          <strong>Scène :</strong> Deux membres assis autour d'une table, laptops ouverts, en train de travailler sur leurs sites. Atmosphère décontractée, productive.<br><br>
+          <strong>Intrusion :</strong> Un 3e personnage arrive en short, tout excité, interrompt : <em>"Hé, pour 10€, t'es prêt à arrêter ton abonnement Focus le mois prochain ? Ou tu préfères sauter dans la piscine ?"</em><br><br>
+          <strong>Réaction :</strong> L'autre réfléchit 2 secondes, regarde l'écran, regarde la piscine... et saute dans la piscine. Il préfère les 10€ plutôt que de lâcher son abonnement.<br><br>
+          <strong>Voix off :</strong> "Groupe Focus — Formation e-commerce & marketing digital. 10€/mois. Lien en bio."
+        </div>
+        <div class="brief-meta">
+          <span class="card-tag tag-blue">TikTok Ads</span>
+          <span class="card-tag tag-cyan">Snap Ads</span>
+          <span class="card-tag tag-success">Meta Reels</span>
+        </div>
+      </div>
+
+      <div class="brief-card">
+        <span class="brief-num">CRÉATIF #2 — BAD BUZZ</span>
+        <div class="brief-title">Le Défi Bureau</div>
+        <div class="brief-scene">
+          <strong>Décor :</strong> Appartement chic, setup home office, double écran.<br><br>
+          <strong>Scène :</strong> Un membre en plein live Discord, écouteurs, concentré. Son téléphone buzze en continu — notifications TikTok, Instagram.<br><br>
+          <strong>Intrusion :</strong> Un ami débarque avec des billets en main : <em>"Je te donne 10€ cash maintenant si tu fermes le Discord et tu regardes ma série avec moi."</em><br><br>
+          <strong>Réaction :</strong> Le membre sourit, prend le billet, le pose à côté de son clavier, et continue le live. Cligne de l'œil caméra.<br><br>
+          <strong>Voix off :</strong> "Ce que tu apprends ici vaut bien plus que 10€. Discord Focus — rejoins-nous."
+        </div>
+        <div class="brief-meta">
+          <span class="card-tag tag-blue">TikTok Ads</span>
+          <span class="card-tag tag-cyan">Instagram Reels</span>
+        </div>
+      </div>
+
+      <div class="brief-card">
+        <span class="brief-num">CRÉATIF #3 — BAD BUZZ</span>
+        <div class="brief-title">Le Café du Matin</div>
+        <div class="brief-scene">
+          <strong>Décor :</strong> Cuisine moderne, matin. Tasse de café Starbucks visible à l'écran (5-6€).<br><br>
+          <strong>Scène :</strong> Membre en pyjama, café à la main, ouvre son téléphone, rejoint le Discord, démarre un replay de formation.<br><br>
+          <strong>Voix off en time-lapse :</strong> <em>"J'ai payé 10€ mon accès à Groupe Focus... c'est moins cher que mon café de lundi matin."</em><br><br>
+          <strong>Cut rapide :</strong> Screenshots de ses premières ventes e-commerce en surimpression. Sourire.<br><br>
+          <strong>CTA :</strong> <em>"10€/mois pour changer ta vie. Lien en bio."</em>
+        </div>
+        <div class="brief-meta">
+          <span class="card-tag tag-blue">TikTok Ads</span>
+          <span class="card-tag tag-success">YouTube Shorts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 CREATIVES SPRINT -->
+    <div style="margin-bottom: 16px;">
+      <div class="week-label" style="background: var(--brand); color: var(--void); display: inline-block; padding: 8px 24px; font-size: 12px; letter-spacing: 0.2em;">Phase 2 — Sprint Créatifs</div>
+    </div>
+    <div class="grid-3">
+      <div class="brief-card">
+        <span class="brief-num">CRÉATIF #4 — SPRINT</span>
+        <div class="brief-title">Le Flashback Zaïd</div>
+        <div class="brief-scene">
+          <strong>Format :</strong> Noir et blanc → couleur (flashback vers présent).<br><br>
+          <strong>Scène 1 (Passé — noir & blanc) :</strong> Zaïd en tenue de livreur de pizza, scooter devant un appartement. Nuit, pluie, fatigué. <em>"J'avais 19 ans, je livrais des pizzas à Kashmar. Je rentrais à 2h du matin..."</em><br><br>
+          <strong>Cut (couleur) :</strong> Zaïd aujourd'hui — setup premium, laptop, communauté de milliers de membres.<br><br>
+          <strong>Zaïd face caméra :</strong> <em>"Ce qui m'a tout changé ? J'ai arrêté de livrer des pizzas, j'ai commencé à livrer de la connaissance. Cette semaine, 3 jours de formation en direct avec les meilleurs. Mardi, mercredi, jeudi. Place limitées."</em><br><br>
+          <strong>CTA :</strong> Lien Discord Sprint.
+        </div>
+        <div class="brief-meta">
+          <span class="card-tag tag-blue">TikTok Ads</span>
+          <span class="card-tag tag-cyan">YouTube Pre-roll</span>
+          <span class="card-tag tag-success">Instagram</span>
+        </div>
+      </div>
+
+      <div class="brief-card">
+        <span class="brief-num">CRÉATIF #5 — SPRINT</span>
+        <div class="brief-title">L'Enfant au Feu Rouge</div>
+        <div class="brief-scene">
+          <strong>Décor :</strong> Feu rouge urbain, été. Belle voiture luxueuse arrêtée.<br><br>
+          <strong>Scène :</strong> Un enfant de 10-12 ans s'approche avec un paquet de mouchoirs à vendre. Il s'arrête, regarde la voiture, regarde la vitre.<br><br>
+          <strong>Audace :</strong> Au lieu de tendre les mouchoirs, il frappe à la vitre et dit : <em>"Monsieur... c'est quoi votre travail ?"</em><br><br>
+          <strong>Le conducteur sourit, baisse la vitre :</strong> <em>"Je forme des gens à gagner leur vie sur internet. Pour 10€ par mois."</em><br><br>
+          <strong>L'enfant pense 2 secondes :</strong> <em>"Je peux venir ?"</em><br><br>
+          <strong>Voix off Zaïd :</strong> <em>"Cette curiosité peut changer une vie. Le Sprint Focus — 3 jours — cette semaine."</em>
+        </div>
+        <div class="brief-meta">
+          <span class="card-tag tag-blue">TikTok Ads</span>
+          <span class="card-tag tag-cyan">Meta Ads</span>
+        </div>
+      </div>
+
+      <div class="brief-card">
+        <span class="brief-num">CRÉATIF #6 — SPRINT</span>
+        <div class="brief-title">La Douche Froide</div>
+        <div class="brief-scene">
+          <strong>Ouverture choc :</strong> Zaïd entre dans la douche — habillé (t-shirt, short) — ouvre le robinet froid. Réaction intense, respiration. Il reste debout.<br><br>
+          <strong>Voix off Zaïd :</strong> <em>"Chaque matin, je me force à faire un truc qui fait mal. Pourquoi ? Parce que c'est exactement ce que la plupart des gens refusent de faire... Et c'est pour ça qu'ils restent là où ils sont."</em><br><br>
+          <strong>Cut rapide :</strong> Sortie de douche, regard caméra, confiant.<br><br>
+          <strong>Zaïd :</strong> <em>"Cette semaine, 3 jours de formation avec Antoine BM, Oussama Amar et Baloo. 3 jours qui vont faire mal... mais qui vont tout changer. Sprint Focus — liens en bio."</em><br><br>
+          <strong>CTA :</strong> 3 secondes de silence + lien.
+        </div>
+        <div class="brief-meta">
+          <span class="card-tag tag-blue">TikTok Ads</span>
+          <span class="card-tag tag-success">YouTube Pre-roll</span>
+          <span class="card-tag tag-cyan">Snap Ads</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTS INFLUENCEURS -->
+<div class="sep"></div>
+<section id="scripts">
+  <div class="container">
+    <span class="section-label">04 — Scripts Influenceurs</span>
+    <h2 class="section-title">Prêt à l'Emploi</h2>
+    <p class="section-desc">Scripts optimisés pour l'authenticité et la conversion. Chaque script est calibré pour la personnalité et la communauté de chaque influenceur.</p>
+
+    <div style="margin-bottom: 48px;">
+      <div class="script-box">
+        <div class="script-speaker">Yousra — Story Phase 1 (Bad Buzz → Recommandation)</div>
+        <div class="script-text">
+          <strong>[Story 1 — Text uniquement — J+1 après le live]</strong><br><br>
+          "J'ai reçu tellement de messages depuis hier... vous avez vu. Je vous explique tout en story ce soir. 🙏"<br><br>
+
+          <strong>[Story 2 — Visage cam, décontractée, chez elle — J+2]</strong><br><br>
+          "Bon okay vous avez été trop nombreux à m'écrire. Je vous dis tout.<br><br>
+          Vous avez vu que j'étais sur le live de Zaïd vendredi soir. Et j'avais un blocage sur mon site e-commerce... il m'a répondu en direct, immédiatement, en live. Gratuit.<br><br>
+          Voilà comment j'ai découvert le Groupe Focus. Et franchement j'ai compris pourquoi autant de gens en parlent.<br><br>
+          C'est <strong>10€ par mois</strong>. Dix euros. Même pas un ciné. Tu as accès aux lives, aux replays, à une vraie communauté. Même les femmes qui ont des enfants, même celles qui n'y connaissent rien au départ — y'a vraiment quelque chose pour tout le monde.<br><br>
+          Moi j'y suis, je vous conseille. Le lien est ici. 👆"
+        </div>
+        <div class="script-note">
+          NOTE STRATÉGIQUE : Insister sur le prix (10€ dit 2 fois minimum), sur l'accessibilité (femmes, débutants), sur la preuve sociale (Zaïd lui a répondu). Story swipe up vers Discord. Ton naturel, pas de script lu, style confidence-talk.
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 48px;">
+      <div class="script-box" style="border-color: rgba(0,255,255,0.3);">
+        <div class="script-speaker" style="color: var(--brand);">Yousra — Story Interview Phase 2 (Post-Sprint)</div>
+        <div class="script-text">
+          <strong>[Story Interview — 1 semaine après le Sprint — Format questions-réponses]</strong><br><br>
+
+          <strong>Question 1 : "C'est quoi le groupe Focus ?"</strong><br>
+          "C'est une communauté Discord. Un groupe où t'apprends le e-commerce, le marketing digital, la création de sites avec l'IA. Y'a des lives tout le temps, des replays, des gens qui partagent leurs résultats. Et Zaïd, qui est là, qui répond. Pour <strong>10€ par mois.</strong> Honnêtement c'est pas normal comme valeur."<br><br>
+
+          <strong>Question 2 : "C'est pour qui ?"</strong><br>
+          "Pour tout le monde. Vraiment. Des mecs qui font du drop, des filles qui veulent lancer une boutique depuis chez elles, des mamans qui ont 1h par jour entre deux biberons... y'a des replays donc t'as zéro excuse de manquer quelque chose. Moi j'ai rejoint avec zéro connaissance. Maintenant j'ai mon site."<br><br>
+
+          <strong>Question 3 : "T'as des résultats ?"</strong><br>
+          "Oui. En quelques semaines. Je veux pas survendre parce que ça dépend de toi aussi. Mais les outils, les infos, les gens qu'il y a dans ce groupe... ça m'a fait avancer 10x plus vite qu'en cherchant toute seule sur YouTube. Et le Sprint cette semaine avec Antoine BM et Oussama Amar... c'était next level."<br><br>
+
+          <strong>CTA final :</strong><br>
+          "Lien dans le bio. 10€/mois. Testé et approuvé. 🔥"
+        </div>
+        <div class="script-note">
+          NOTE STRATÉGIQUE : Format questions-réponses = authenticité maximale. Mentionner Antoine BM et Oussama Amar pour crédibilité. Répéter le prix 10€ 3 fois minimum. Finir sur son propre résultat concret (preuve).
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="script-box" style="border-color: rgba(0,230,118,0.3);">
+        <div class="script-speaker" style="color: var(--success);">PA7 — Story Snap Sprint (1 500€)</div>
+        <div class="script-text">
+          <strong>[Story Snap — Pendant ou juste après Sprint J2 — Ton naturel PA7]</strong><br><br>
+          "Yo les gars, je sais pas si vous avez suivi ce qu'il se passe sur Discord en ce moment, mais... j'ai regardé le live hier soir. Antoine BM qui parle business et investissement avec Zaïd... sur un Discord. Gratuit. Ça, franchement, ça m'a choqué.<br><br>
+          J'ai eu la curiosité de regarder c'est quoi ce groupe Focus dont tout le monde parle. Et franchement, le concept est trop bien.<br><br>
+          Vous apprenez le e-commerce, le marketing digital, l'IA pour créer vos trucs — et y'a Antoine BM, Oussama Amar, Baloo qui interviennent.<br><br>
+          Pour <strong>10€ par mois</strong>. Vas-y je suis sincère là, 10€. C'est littéralement rien.<br><br>
+          Même moi je suis dessus depuis que j'ai vu le truc. C'est un bet de groupe. Y'a une vibe de gens qui se motivent et qui passent à l'action ensemble.<br><br>
+          Le lien est dans ma bio. Rejoins ce soir, t'as encore les replays du Sprint."
+        </div>
+        <div class="script-note">
+          NOTE STRATÉGIQUE : Ton PA7 = spontané, "choc de l'authenticité". Mentionner Antoine BM comme élément de surprise. "C'est un bet de groupe" = appartenance communautaire. Prix dit 2 fois. Urgence : "encore les replays ce soir". NE PAS donner un script trop léché — PA7 doit l'adapter à sa voix.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERVENANTS SPRINT -->
+<div class="sep"></div>
+<section>
+  <div class="container">
+    <span class="section-label">05 — Intervenants Sprint</span>
+    <h2 class="section-title">Les Speakers & Tarifs</h2>
+    <p class="section-desc">3 intervenants principaux + 3 alternatives identifiées dans la même niche (disponibilité variable). Tarifs estimatifs pour prestation live Discord + droits de diffusion clips.</p>
+
+    <div class="grid-3" style="margin-bottom: 48px;">
+      <div class="speaker-card">
+        <div class="card-accent"></div>
+        <div class="speaker-name">Baloo</div>
+        <div class="speaker-role">Influenceur Business / E-commerce — Communauté française</div>
+        <div class="speaker-fee">2 000 – 5 000€</div>
+        <div class="speaker-fee-note">Prestation live 1h + droits clips TikTok</div>
+        <span class="card-tag tag-success">Priorité 1 — Accessible</span>
+      </div>
+      <div class="speaker-card">
+        <div class="card-accent"></div>
+        <div class="speaker-name">Oussama Amar</div>
+        <div class="speaker-role">Entrepreneur Tech, The Family — Speaker reconnu</div>
+        <div class="speaker-fee">5 000 – 15 000€</div>
+        <div class="speaker-fee-note">Prestation live 1h + droits clips</div>
+        <span class="card-tag tag-blue">Priorité 2 — Impact fort</span>
+      </div>
+      <div class="speaker-card">
+        <div class="card-accent"></div>
+        <div class="speaker-name">Antoine BM</div>
+        <div class="speaker-role">Influenceur Business & Mindset — Millions de vues, audience entrepreneur</div>
+        <div class="speaker-fee">2 000 – 3 000€</div>
+        <div class="speaker-fee-note">Prestation live 1h + droits clips</div>
+        <span class="card-tag tag-cyan">Priorité 3 — Niche Parfaite</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FINANCIALS -->
+<div class="sep"></div>
+<section id="financials">
+  <div class="container">
+    <span class="section-label">06 — Budget & ROI</span>
+    <h2 class="section-title">Projections Financières</h2>
+    <p class="section-desc">Analyse coût par canal, abonnés générés estimés et retour sur investissement Mois 1. Basé sur des taux de conversion conservateurs et réalistes.</p>
+
+    <!-- BIG METRICS -->
+    <div class="grid-3" style="margin-bottom: 64px;">
+      <div class="metric-block">
+        <div class="metric-value blue">~11 000<span style="font-size: 28px;">€</span></div>
+        <div class="metric-label">Budget Total Hors Speakers</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-value cyan">5 000+</div>
+        <div class="metric-label">Abonnés Potentiels 45 Jours</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-value green">50 000<span style="font-size: 28px;">€</span></div>
+        <div class="metric-label">MRR Cible Mois 1</div>
+      </div>
+    </div>
+
+    <!-- ROI TABLE -->
+    <div style="overflow-x: auto; margin-bottom: 64px;">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>Canal</th>
+            <th>Coût Estimé</th>
+            <th>Reach Estimé</th>
+            <th>Taux Conv.</th>
+            <th>Abonnés</th>
+            <th>MRR Généré</th>
+            <th>ROI Mois 1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Clipping TikTok — Phase 1</strong><br><span style="font-size: 12px; color: var(--white-60);">1 semaine, Yousra bad buzz</span></td>
+            <td class="amount">2 000€</td>
+            <td class="amount neutral">300k – 1M vues</td>
+            <td>0.3%</td>
+            <td class="amount neutral">900 – 3 000</td>
+            <td class="amount positive">9 000 – 30 000€</td>
+            <td class="amount positive">+7k – +28k€</td>
+          </tr>
+          <tr>
+            <td><strong>Snap — Yousra Story</strong><br><span style="font-size: 12px; color: var(--white-60);">Phase 1, communauté femmes</span></td>
+            <td class="amount">500€</td>
+            <td class="amount neutral">150k – 300k</td>
+            <td>0.8%</td>
+            <td class="amount neutral">1 200 – 2 400</td>
+            <td class="amount positive">12 000 – 24 000€</td>
+            <td class="amount positive">+11.5k – +23.5k€</td>
+          </tr>
+          <tr>
+            <td><strong>Snap — Relai Influenceur #2</strong><br><span style="font-size: 12px; color: var(--white-60);">Phase 1, 2e relai communauté</span></td>
+            <td class="amount">500€</td>
+            <td class="amount neutral">80k – 150k</td>
+            <td>0.5%</td>
+            <td class="amount neutral">400 – 750</td>
+            <td class="amount positive">4 000 – 7 500€</td>
+            <td class="amount positive">+3.5k – +7k€</td>
+          </tr>
+          <tr>
+            <td><strong>TikTok/Snap/Meta Ads — Créatifs</strong><br><span style="font-size: 12px; color: var(--white-60);">3 créatifs, budget test puis scale</span></td>
+            <td class="amount">3 000€</td>
+            <td class="amount neutral">500k – 2M</td>
+            <td>0.15%</td>
+            <td class="amount neutral">750 – 3 000</td>
+            <td class="amount positive">7 500 – 30 000€</td>
+            <td class="amount positive">+4.5k – +27k€</td>
+          </tr>
+          <tr>
+            <td><strong>Email Klaviyo — 85k leads</strong><br><span style="font-size: 12px; color: var(--white-60);">1 email, base 85k leads Power Group</span></td>
+            <td class="amount">1 500€</td>
+            <td class="amount neutral">85 000 emails</td>
+            <td>20%</td>
+            <td class="amount neutral">450 – 900</td>
+            <td class="amount positive">4 500 – 9 000€</td>
+            <td class="amount positive">+3k – +7.5k€</td>
+          </tr>
+          <tr>
+            <td><strong>PA7 Snap — Sprint</strong><br><span style="font-size: 12px; color: var(--white-60);">Story sprint J19, communauté PA7</span></td>
+            <td class="amount">1 500€</td>
+            <td class="amount neutral">200k – 400k</td>
+            <td>0.6%</td>
+            <td class="amount neutral">1 200 – 2 400</td>
+            <td class="amount positive">12 000 – 24 000€</td>
+            <td class="amount positive">+10.5k – +22.5k€</td>
+          </tr>
+          <tr>
+            <td><strong>Clipping TikTok — Sprint</strong><br><span style="font-size: 12px; color: var(--white-60);">1 semaine, moments forts speakers</span></td>
+            <td class="amount">2 000€</td>
+            <td class="amount neutral">500k – 3M vues</td>
+            <td>0.2%</td>
+            <td class="amount neutral">1 000 – 6 000</td>
+            <td class="amount positive">10 000 – 60 000€</td>
+            <td class="amount positive">+8k – +58k€</td>
+          </tr>
+          <tr>
+            <td><strong>Organique Bad Buzz</strong><br><span style="font-size: 12px; color: var(--white-60);">Micro-influenceurs spontanés, bouche-à-oreille</span></td>
+            <td class="amount">0€</td>
+            <td class="amount neutral">Illimité</td>
+            <td>Variable</td>
+            <td class="amount neutral">200 – 2 000</td>
+            <td class="amount positive">2 000 – 20 000€</td>
+            <td class="amount positive">+2k – +20k€</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL HORS SPEAKERS</strong></td>
+            <td class="amount"><strong>11 000€</strong></td>
+            <td class="amount neutral"><strong>~10M reach</strong></td>
+            <td>—</td>
+            <td class="amount neutral"><strong>6 150 – 19 550</strong></td>
+            <td class="amount positive"><strong>61 500 – 195 500€</strong></td>
+            <td class="amount positive"><strong>+50k – +184k€</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SPEAKERS BUDGET -->
+    <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; margin-bottom: 24px; letter-spacing: 0.05em;">Budget Speakers Sprint</h3>
+    <div style="overflow-x: auto; margin-bottom: 64px;">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>Intervenant</th>
+            <th>Fourchette Basse</th>
+            <th>Fourchette Haute</th>
+            <th>Impact Viral Estimé</th>
+            <th>ROI Clips Organiques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Baloo</strong> — Influenceur Business</td>
+            <td class="amount">2 000€</td>
+            <td class="amount">5 000€</td>
+            <td class="amount neutral">50k – 200k vues clips</td>
+            <td class="amount positive">+500 – 2 000 abonnés</td>
+          </tr>
+          <tr>
+            <td><strong>Oussama Amar</strong> — Entrepreneur Tech</td>
+            <td class="amount">5 000€</td>
+            <td class="amount">15 000€</td>
+            <td class="amount neutral">100k – 500k vues clips</td>
+            <td class="amount positive">+1 000 – 5 000 abonnés</td>
+          </tr>
+          <tr>
+            <td><strong>Antoine BM</strong> — Influenceur E-commerce</td>
+            <td class="amount">2 000€</td>
+            <td class="amount">5 000€</td>
+            <td class="amount neutral">100k – 500k vues clips</td>
+            <td class="amount positive">+1 000 – 5 000 abonnés</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL SPEAKERS</strong></td>
+            <td class="amount"><strong>9 000€</strong></td>
+            <td class="amount"><strong>25 000€</strong></td>
+            <td class="amount neutral"><strong>~1M vues potentiel</strong></td>
+            <td class="amount positive"><strong>+3 500 – 12 000 abonnés</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SCÉNARIOS -->
+    <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; margin-bottom: 24px; letter-spacing: 0.05em;">Scénarios de Rentabilité</h3>
+    <div class="grid-3">
+      <div class="metric-block" style="border-color: rgba(0,230,118,0.3);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--success); letter-spacing: 0.2em; margin-bottom: 16px;">SCÉNARIO CONSERVATEUR</div>
+        <div class="metric-value" style="font-size: 36px; color: var(--success);">1 000<br><span style="font-size: 18px;">abonnés</span></div>
+        <div style="margin-top: 16px; font-size: 14px; color: var(--white-60); line-height: 1.8;">
+          MRR : <strong style="color: white;">10 000€/mois</strong><br>
+          Budget investi : ~11 000€<br>
+          Retour investissement : <strong style="color: var(--success);">Mois 2</strong><br>
+          Année 1 estimé : <strong style="color: var(--success);">+109 000€</strong>
+        </div>
+      </div>
+      <div class="metric-block" style="border-color: rgba(0,71,255,0.3);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--brand); letter-spacing: 0.2em; margin-bottom: 16px;">SCÉNARIO RÉALISTE</div>
+        <div class="metric-value" style="font-size: 36px; color: var(--brand);">5 000<br><span style="font-size: 18px;">abonnés</span></div>
+        <div style="margin-top: 16px; font-size: 14px; color: var(--white-60); line-height: 1.8;">
+          MRR : <strong style="color: white;">50 000€/mois</strong><br>
+          Budget investi : ~38 000€<br>
+          Retour investissement : <strong style="color: var(--brand);">Mois 1</strong><br>
+          Année 1 estimé : <strong style="color: var(--brand);">+562 000€</strong>
+        </div>
+      </div>
+      <div class="metric-block" style="border-color: rgba(0,255,255,0.3);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--brand); letter-spacing: 0.2em; margin-bottom: 16px;">SCÉNARIO VIRAL</div>
+        <div class="metric-value" style="font-size: 36px; color: var(--brand);">15 000<br><span style="font-size: 18px;">abonnés</span></div>
+        <div style="margin-top: 16px; font-size: 14px; color: var(--white-60); line-height: 1.8;">
+          MRR : <strong style="color: white;">150 000€/mois</strong><br>
+          Budget investi : ~80 000€<br>
+          Retour investissement : <strong style="color: var(--brand);">Mois 1</strong><br>
+          Année 1 estimé : <strong style="color: var(--brand);">+1 720 000€</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPIs -->
+<div class="sep"></div>
+<section id="kpis">
+  <div class="container">
+    <span class="section-label">07 — Métriques de Performance</span>
+    <h2 class="section-title">KPIs & Objectifs</h2>
+    <p class="section-desc">Indicateurs à tracker quotidiennement. Chaque KPI a une valeur cible définie pour alerter en cas de sous-performance.</p>
+
+    <div style="margin-bottom: 64px;">
+      <div class="kpi-row">
+        <div class="kpi-name">Nouveaux Abonnés Discord / Semaine</div>
+        <div class="kpi-target">Objectif minimum</div>
+        <div class="kpi-value" style="color: var(--brand);">500 / sem</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">Taux Conversion Public → Payant</div>
+        <div class="kpi-target">Sur membres public Discord</div>
+        <div class="kpi-value" style="color: var(--brand);">10 – 15%</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">Vues TikTok Clips / Semaine</div>
+        <div class="kpi-target">Organique + Ads</div>
+        <div class="kpi-value" style="color: var(--brand);">500k+</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">Taux Ouverture Email Klaviyo</div>
+        <div class="kpi-target">85k emails envoyés</div>
+        <div class="kpi-value" style="color: var(--success);">&gt; 25%</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">Churn Rate Mensuel</div>
+        <div class="kpi-target">Abonnés qui partent</div>
+        <div class="kpi-value" style="color: var(--warning);">&lt; 8%</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">ROAS Campagnes Ads</div>
+        <div class="kpi-target">Toutes plateformes confondues</div>
+        <div class="kpi-value" style="color: var(--success);">&gt; 3x</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">MRR Cible Fin Mois 1 (J45)</div>
+        <div class="kpi-target">Objectif minimum réaliste</div>
+        <div class="kpi-value" style="color: var(--brand);">25 000€</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">Taux de Présence Aux Lives</div>
+        <div class="kpi-target">Membres payants actifs</div>
+        <div class="kpi-value" style="color: var(--brand);">&gt; 30%</div>
+      </div>
+    </div>
+
+    <!-- RISKS -->
+    <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; margin-bottom: 24px; letter-spacing: 0.05em;">Analyse des Risques</h3>
+    <div>
+      <div class="risk-row risk-med">
+        <div class="risk-name"><strong>Speaker non disponible</strong><br><span style="font-size: 12px; color: var(--white-60);">Baloo / Oussama Amar / Antoine BM indisponible J18-J20</span></div>
+        <div class="risk-level">MOYEN</div>
+        <div class="risk-mitigation">✓ Contacter les 3 en amont avec délai suffisant. Prévoir une date flexible pour le Sprint.</div>
+      </div>
+      <div class="risk-row risk-med">
+        <div class="risk-name"><strong>Churn élevé après Sprint</strong><br><span style="font-size: 12px; color: var(--white-60);">Inscrits Sprint qui ne renouvellent pas</span></div>
+        <div class="risk-level">MOYEN</div>
+        <div class="risk-mitigation">✓ Programme de rétention J+15 : formation exclusive, défi 30 jours, meetup virtuel. Valeur perçue &gt; prix pour réduire churn.</div>
+      </div>
+      <div class="risk-row risk-med">
+        <div class="risk-name"><strong>Sous-performance ads</strong><br><span style="font-size: 12px; color: var(--white-60);">ROAS &lt; 2x sur les créatifs</span></div>
+        <div class="risk-level">MOYEN</div>
+        <div class="risk-mitigation">✓ Phase test J1-J7 avec budget limité (50€/jour). Stop automatique si ROAS &lt; 1.5 après 3 jours. Itérer sur le créatif gagnant uniquement.</div>
+      </div>
+      <div class="risk-row risk-low">
+        <div class="risk-name"><strong>Saturation email base</strong><br><span style="font-size: 12px; color: var(--white-60);">Taux désinscription &gt; 2% sur la base 85k</span></div>
+        <div class="risk-level">FAIBLE</div>
+        <div class="risk-mitigation">✓ Séquence max 3 emails sur 5 jours. Sujet optimisé, personnalisation prénom. Test A/B sur 5k avant envoi full liste.</div>
+      </div>
+      <div class="risk-row risk-low">
+        <div class="risk-name"><strong>Problème technique Discord</strong><br><span style="font-size: 12px; color: var(--white-60);">Crash serveur pendant live Sprint</span></div>
+        <div class="risk-level">FAIBLE</div>
+        <div class="risk-mitigation">✓ Serveur Discord premium (Boost Level 3). Backup streaming YouTube Live en parallèle pour Sprint. Clipper sur deux appareils simultanément.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<div class="sep"></div>
+<section style="padding: 120px 0 80px;">
+  <div class="container" style="text-align: center;">
+    <span class="section-label" style="justify-content: center; display: block;">09 — Verdict</span>
+    <h2 class="section-title" style="font-size: clamp(40px, 7vw, 80px);">La Machine est Prête</h2>
+    <p style="font-size: 18px; color: var(--white-60); max-width: 700px; margin: 0 auto 64px; line-height: 1.8;">
+      Le Groupe Focus réunit tous les ingrédients d'une croissance explosive : un fondateur influent, un prix d'entrée imbattable, une stratégie de buzz maîtrisée et une machine de conversion disciplinée. Chaque euro investi est traçable, chaque action est datée.
+    </p>
+
+    <div class="grid-3" style="margin-bottom: 64px; text-align: left;">
+      <div class="highlight">
+        <strong style="color: var(--brand); display: block; margin-bottom: 8px;">Avantage #1</strong>
+        10€/mois = zéro friction psychologique. Le client ne réfléchit pas. Il teste.
+      </div>
+      <div class="highlight">
+        <strong style="color: var(--brand); display: block; margin-bottom: 8px;">Avantage #2</strong>
+        Le Bad Buzz + Sprint = 2 vagues d'acquisition distinctes. Si l'une sous-performe, l'autre prend le relais.
+      </div>
+      <div class="highlight">
+        <strong style="color: var(--success); display: block; margin-bottom: 8px;">Avantage #3</strong>
+        Revenus récurrents mensuels dès Mois 1. Chaque abonné acquis = 120€ sur 1 an (LTV minimum).
+      </div>
+    </div>
+
+    <div class="metric-block" style="display: inline-block; padding: 48px 80px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--white-60); letter-spacing: 0.3em; margin-bottom: 16px;">OBJECTIF MRR — FIN MOIS 1</div>
+      <div class="metric-value green" style="font-size: 72px;">50 000<span style="font-size: 36px;">€</span></div>
+      <div class="metric-label">= 5 000 abonnés × 10€/mois</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>MENTALITÉ</span> FOCUS</div>
+  <div class="footer-tagline">Business Plan Stratégique — Document Confidentiel</div>
+  <div class="footer-meta">
+    <span>Mars 2026</span>
+    <span>Version 1.0 — Usage Interne</span>
+    <span>mentalitefocus.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
